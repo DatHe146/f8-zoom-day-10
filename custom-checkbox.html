@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>custom-checkbox</title>
+        <style>
+            :root {
+                --checked: rgb(46, 175, 122);
+                --check: rgb(141, 151, 147);
+            }
+            .wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                gap: 30px;
+                background: #ccc;
+            }
+
+            div > span,
+            div > span,
+            div > span {
+                margin-bottom: 30px;
+                display: block;
+            }
+
+            .checkbox,
+            .radio,
+            .switch {
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                position: relative;
+            }
+
+            .checkbox::before {
+                content: "";
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+                border: 3px solid rgb(141, 151, 147);
+                border-radius: 3px;
+            }
+
+            .checkbox:has(input[type="checkbox"]:checked)::before {
+                background: var(--checked);
+                border-color: var(--checked);
+            }
+
+            .checkbox:has(input[type="checkbox"]:checked)::after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                width: 4px;
+                height: 12px;
+                rotate: 45deg;
+                right: 28px;
+                border: 3px solid #ccc;
+                border-color: transparent #fff #fff transparent;
+            }
+
+            .radio::before {
+                content: "";
+                width: 25px;
+                height: 25px;
+                display: inline-block;
+                border: 3px solid rgb(141, 151, 147);
+                border-radius: 50%;
+            }
+
+            .radio:has(input[type="checkbox"]:checked)::before {
+                border-color: var(--checked);
+            }
+
+            .radio:has(input[type="checkbox"]:checked)::after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                bottom: 12px;
+                right: 12px;
+                background: var(--checked);
+            }
+
+            .switch::before {
+                content: "";
+                width: 50px;
+                height: 25px;
+                border-radius: 15px;
+                display: inline-block;
+                
+                background: var(--check);
+            }
+
+            .switch a {
+                display: inline-block;
+                pointer-events: none;
+                height: 32px;
+                width: 32px;
+                border-radius: 50%;
+                background: #fff;
+                position: absolute;
+                right: 30px;
+                bottom: 0px;
+                z-index: 1;
+                translate: 0 0;
+                transition: background ease 0.5s, translate ease 0.5s;
+            }
+
+            .switch:has(input[type="checkbox"]:checked)::after{
+                content: "";
+                background-color: rgb(109, 163, 140);
+                position: absolute;
+                width: 50px;
+                height: 25px;
+                border-radius: 15px;
+                right: -1px;
+            }
+
+            .switch:has(input[type="checkbox"]:checked) a{
+                translate: 36px 0;
+                background: var(--checked);
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div>
+                <span>Checkbox</span>
+                <label class="checkbox">
+                    <input type="checkbox" name="" hidden checked />
+                </label>
+            </div>
+            <div>
+                <span>Radio</span>
+                <label class="radio">
+                    <input type="checkbox" checked hidden />
+                </label>
+            </div>
+            <div>
+                <span>Switch</span>
+                <label class="switch">
+                    <input type="checkbox" checked hidden />
+                    <a href="#!"></a>
+                </label>
+            </div>
+        </div>
+    </body>
+</html>
