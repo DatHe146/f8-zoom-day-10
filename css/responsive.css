@@ -1,0 +1,175 @@
+.img-logo {
+    display: none;
+}
+
+.drawer-close {
+    display: none;
+}
+
+.drawer-open {
+    display: none;
+}
+
+@media (max-width: 1199.98px) {
+    .container {
+        width: 100%;
+    }
+
+    .body-main .pd-list .pd-item {
+        --column: 2;
+    }
+
+    .pd-item .thumb-wrapper {
+        width: 100%;
+    }
+
+    .body-main .pd-list .pd-item img {
+        height: 100%;
+        width: 100%;
+    }
+    .header .container,
+    .main .container,
+    .footer .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .img-logo {
+        display: block;
+    }
+    .main-wrapper {
+        flex-direction: column-reverse;
+    }
+    .container {
+        max-width: 750px;
+    }
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: black;
+        width: 70%;
+
+        translate: -101%;
+        transition: translate 0.5s ease;
+        z-index: 999;
+
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    #drawer:checked ~ .nav {
+        translate: 0;
+    }
+
+    .header .nav .nav-list {
+        flex-direction: column;
+    }
+
+    .header .nav .nav-list > li > a {
+        width: 100%;
+        display: inline-block;
+        text-align: left;
+    }
+
+    .header .nav a {
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .drawer-open {
+        display: block;
+        color: var(--white);
+        font-size: 2.8rem;
+        padding: 20px;
+        margin-left: -20px;
+    }
+
+    .drawer-close {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: white;
+        padding: 20px;
+        font-size: 1.6rem;
+    }
+
+    .drawer-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 998;
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity ease 0.5s,
+            visibility ease 0.5s;
+    }
+
+    #drawer:checked ~ .drawer-overlay {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .main-wrapper .sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .footer .container {
+        gap: 15px;
+    }
+    .header .nav .nav-list > li:hover .sub-menu {
+        display: block;
+    }
+
+    .header .nav .nav-list > li .sub-menu {
+        display: none;
+        position: initial;
+    }
+
+    .sub-menu li {
+        width: 100%;
+        background: transparent;
+    }
+
+    .header .nav a {
+        margin: 0;
+        display: block;
+        padding-left: 35px;
+        color: var(--white);
+        font-weight: 700;
+    }
+
+    .sub-menu li a {
+        text-align: left;
+        line-height: 46px;
+        margin: 0;
+        display: block;
+    }
+
+    .sub-menu li + li {
+        border: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+}
+
+@media (max-width: 638.98px) {
+    .footer .container {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 550.98px) {
+    .body-main .pd-list .pd-item {
+        --column: 1;
+    }
+}
